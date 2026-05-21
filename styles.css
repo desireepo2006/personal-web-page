@@ -1,0 +1,218 @@
+/* El reset universal para que todo mida exacto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para el cuerpo de la página */
+body {
+    background-image: url('img/jean texture.jpg'); /* Tu imagen de fondo */
+    background-position: top center; /* Cambiamos 'center' por 'top center' para que empiece desde arriba */
+    
+    /* 1. ELIMINA O COMENTA ESTA LÍNEA: */
+    /* background-attachment: fixed; */ 
+
+    /* 2. AGREGA ESTAS DOS LÍNEAS NUEVAS: */
+    background-repeat: repeat-y;     /* Hace que la tela se repita infinitamente hacia abajo si la página es larga */
+    background-size: 100% auto;      /* Se ajusta al ancho de la pantalla, pero el alto crece naturalmente */
+
+    font-family: Arial, sans-serif;        
+    min-height: 100vh;                     /* Asegura que el cuerpo ocupe toda la altura */
+}
+
+/* Estilos del contenedor del Header */
+.barra-navegacion {
+    display: flex;
+    justify-content: space-between; /* Separa el logo a la izquierda y el menú a la derecha */
+    align-items: center;            /* Los centra verticalmente */
+    padding: 20px 50px;             /* Espacio interno para que no pegue a los bordes */
+}
+
+/* El menú gris contenedor de los botones */
+.menu ul {
+    display: flex;
+    background-color: #a0a5a9;      /* Color gris de tu maqueta */
+    padding: 17px 300px;
+    border-radius: 30px;            /* Bordes súper redondeados */
+    list-style: none;               /* Quita los puntitos negros de la lista */
+    gap: 15px;                      /* Espacio entre cada botón */
+    border: 2px solid #333;         /* Un borde oscuro fino para estilo Y2K */
+}
+
+/* Estilo individual de cada palabra/enlace */
+.btn-nav {
+    text-decoration: none;          /* Quita el subrayado azul clásico */
+    color: #000;                    /* Texto negro */
+    font-weight: bold;
+    padding: 8px 30px;
+    border-radius: 20px;
+    transition: background 0.3s;    /* Animación suave para el hover */
+}
+
+/* El botón activo (About me en tu diseño) o cuando pasas el mouse */
+.btn-nav.active, .btn-nav:hover {
+    background-color: #556677;      /* Gris oscuro/azul de tu diseño */
+    color: #fff;                    /* Texto blanco para contrastar */
+}
+
+/* Centra la maleta en la pantalla */
+.escenario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+/* ESTA ES LA REGLA DE ORO */
+.maleta-contenedor {
+    position: relative; /* Permite que las pegatinas se posicionen con respecto a la maleta */
+    display: inline-block; 
+    margin-top: -190px;
+}
+
+/* Forzar a que la maleta tenga un tamaño controlado */
+.maleta-fondo {
+    top: 20px;
+    width: 800px;  /* Ajusta este tamaño según midan tus imágenes */
+    display: block;
+    height: auto;
+}
+
+.logo img {
+    width: 300px;   /* Ajusta los pixeles (px) hasta que tenga el tamaño que te guste */
+    height: auto;   /* Esto evita que el logo se deforme o se estire feo */
+}
+
+/* --- Reglas generales para los elementos flotantes --- */
+.decoracion, .sticker {
+    position: absolute;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Hace que los movimientos sean suaves */
+}
+
+/* --- Posicionando la Estrella Roja (Izquierda) --- */
+.estrella-roja {
+    top: 35%;          /* Distancia desde el borde superior de la maleta */
+    left: -100px;       /* Números negativos para sacarla a la izquierda de la maleta */
+    width: 180px;       /* Tamaño de la estrella */
+}
+
+/* --- Posicionando la Estrella Amarilla (Derecha) --- */
+.estrella-amarilla {
+    top: 20%;
+    right: -130px;      /* Números negativos para sacarla a la derecha de la maleta */
+    width: 250px;
+}
+
+/* --- Posicionando el Sticker "HELLO, I'M" (Dentro de la tapa) --- */
+.btn-hello {
+    top: 37%;          /* Ajusta este % para que caiga justo en la tapa superior */
+    left: 20%;         /* Ajusta este % para moverlo a la izquierda dentro de la tapa */
+    width: 190px;      
+    transform: rotate(-12deg); /* Ese look inclinado súper cute */
+}
+
+/* Esto obliga a la imagen a seguir las órdenes del botón contenedor */
+.sticker img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Cuando pasas el mouse por encima de CUALQUIER sticker */
+.sticker:hover {
+    cursor: pointer;
+    /* Se agranda a 1.1 (110%) y se queda derecho en 0 grados */
+    transform: scale(1.1) rotate(0deg); 
+    /* Le da una sombra negra suave para simular relieve */
+    filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.4)); 
+}
+
+/* --- Botón Música (Vinilo) --- */
+.btn-musica {
+    top: 55%;
+    left: 20%;
+    width: 150px;
+    transform: rotate(-30deg);
+}
+
+/* --- Botón Pinturas (Paleta) --- */
+.btn-pinturas {
+    top: 63%;
+    left: 18%;
+    width: 161px;
+    transform: rotate(-40deg);
+}
+
+/* --- Botón Fotografías (Cámara) --- */
+.btn-fotografias {
+    top: 63%;
+    left: 39%;
+    width: 170px;
+    transform: rotate(-8deg);
+}
+
+/* --- Botón Instrumentos (Teclado) --- */
+.btn-instrumentos {
+    top: 50%;
+    right: 15%;
+    width: 260px;
+    transform: rotate(25deg); /* Bastante inclinado como en tu dibujo */
+}
+
+/* --- Botón Programación (VS Code) --- */
+.btn-programacion {
+    top: 65%;
+    right: 20%;
+    width: 130px;
+    transform: rotate(10deg);
+}
+
+.fondo-puntitos {
+    position: absolute;
+    top: 48%;         /* Ajusta este % para que baje a la mitad inferior de la maleta */
+    left: 29%;         /* Ajusta este % para centrarlo horizontalmente dentro del metal */
+    width: 60%;       /* El ancho que ocupará dentro de la maleta */
+    height: 36%;      /* El alto que ocupará dentro de la maleta */
+    
+    object-fit: cover;   /* Evita que los puntitos se estiren o se deformen feo */
+    border-radius: 15px; /* Redondea las esquinas para que se adapte a la forma de tu maleta */
+    
+    pointer-events: none; /* ¡TIP PRO! Esto hace que la imagen sea "invisible" para los clics, 
+                             así el usuario puede hacer clic en los stickers sin que esta capa estorbe */
+}
+
+.foto-desiree {
+    position: absolute;
+    top: 31%;         /* Ajusta este % para que baje a la mitad inferior de la maleta */
+    left: 47%;         /* Ajusta este % para centrarlo horizontalmente dentro del metal */
+    width: 40%;       /* El ancho que ocupará dentro de la maleta */
+    height: 23%;      /* El alto que ocupará dentro de la maleta */
+    
+    object-fit: cover;   /* Evita que los puntitos se estiren o se deformen feo */
+    border-radius: 15px; 
+}
+
+.foto-decoracion {
+    position: absolute;
+    top: 42%;         /* Ajusta este % para que baje a la mitad inferior de la maleta */
+    left: 5%;         /* Ajusta este % para centrarlo horizontalmente dentro del metal */
+    width: 90%;       /* El ancho que ocupará dentro de la maleta */
+    height: 20%;      /* El alto que ocupará dentro de la maleta */
+    
+    object-fit: cover;   /* Evita que los puntitos se estiren o se deformen feo */
+    border-radius: 15px; 
+}
+
+.mypage {
+    position: absolute;
+    top: 28%;         /* Ajusta este % para que baje a la mitad inferior de la maleta */
+    left: 11%;         /* Ajusta este % para centrarlo horizontalmente dentro del metal */
+    width: 55%;       /* El ancho que ocupará dentro de la maleta */
+    height: auto;      /* El alto se ajusta automáticamente para mantener la proporción */
+    
+    object-fit: cover;   /* Evita que los puntitos se estiren o se deformen feo */
+    border-radius: 15px; 
+
+}
